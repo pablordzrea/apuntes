@@ -1,0 +1,49 @@
+select (Nombre + ' ' + ApPat+ ' ' +ApMat) as NombreCompleto
+	,DiasAntiguedad as 'Dias de Antiguedad' 
+	,Substring(nombre,0,3)			//Muestra los caracteres del 0 al 3 del campo del nombre
+	, v.*
+from Empleados as e left Join Ventas as v on V.IdEmpleadoVenta = e.Id
+where DiasAntiguedad>600
+
+left join Muestra todos los registros de la tabla de la izquierda(Empleados),
+	nos aseguramos de que muestre todos los empleados aunque no tenga ventas
+
+rigth join Muestra los registros de la tabla de la derecha
+ 	Nos aseguramos de que mostrara todas las (ventas), aunque no tenga vendedor
+
+inner join Muestra unicamente las que hagan conexión, mostrara las ventas que tengan empleado unicamente
+	y unicamente los empleados que tengan ventas
+-----------------------------------------------------------------------------------------------------------------		
+Agregacion: Reducir un conjunto a un solo valor. I.e, contar cuantos registros tengo de un cierto tipo.
+
+select (Nombre + ' ' + ApPat+ ' ' +ApMat) as NombreCompleto,
+	COUNT(v.Id) as 'ventas realizadas'
+	
+from Empleados as e 
+inner Join Ventas as v on V.IdEmpleadoVenta = e.Id
+group by (Nombre + ' ' + ApPat+ ' ' +ApMat)
+having COUNT(v.Id)>0 					//Muestra los registros donde las ventas sean mayores a 0
+order by COUNT(v.Id) desc 				//Ordena de manera descendente //asc Ordena de manera ascendente
+
+//Mostrara los empleados que tengan mas de una venta y cuantas tienen
+----------------------------------------------------------------------------------------------------------------
+select TOP 3 * from Empleados				//Limita las filas que muestra la consulta (3)
+
+-------------------------------------------------------------------------------------------------------------------
+//TABLA TEMPORAL(Se elimina al cerrar sesión)			//TABLA NO TEMPORAL
+select *							select*
+into #empleados							into empleadosnotemp
+from Empleados							from Empleados
+
+-----------------------------------------------------------------------------------------------------------------------------
+PRACTICA
+[] 5 SELECT BASICOS CON CAMBIO EN NOMBRE DE COLUMNA, ALIAS Y USO DE FUNCIONES (CONCATENACION, V.*, SUBSTRING)
+[] 4 SELECT JOIN (CROSS, INNER, LEFT, RIGHT)
+[] 5 SELECT CON USO DE WHERE EN DIFERENTES TABLAS Y CAMPOS
+[] 5 SELECT CON USO DE FUNCIONES DE AGREGACION (MIN, MAX, AVG, STD, COUNT)
+	-2 SIN GROUP BY
+	-3 CON GROUP BY -> 1 CON HAVING
+[] 3 SELECT CON JOIN Y GROUP BY
+[] 1 SELECT INTO CON DROP TABLE Y REINSERTAR LAS FILAS
+
+			
