@@ -11,7 +11,7 @@ left join Muestra todos los registros de la tabla de la izquierda(Empleados),
 rigth join Muestra los registros de la tabla de la derecha
  	Nos aseguramos de que mostrara todas las (ventas), aunque no tenga vendedor
 
-inner join Muestra unicamente las que hagan conexión, mostrara las ventas que tengan empleado unicamente
+inner join Muestra unicamente las que hagan conexiÃ³n, mostrara las ventas que tengan empleado unicamente
 	y unicamente los empleados que tengan ventas
 -----------------------------------------------------------------------------------------------------------------		
 Agregacion: Reducir un conjunto a un solo valor. I.e, contar cuantos registros tengo de un cierto tipo.
@@ -30,7 +30,7 @@ order by COUNT(v.Id) desc 				//Ordena de manera descendente //asc Ordena de man
 select TOP 3 * from Empleados				//Limita las filas que muestra la consulta (3)
 
 -------------------------------------------------------------------------------------------------------------------
-//TABLA TEMPORAL(Se elimina al cerrar sesión)			//TABLA NO TEMPORAL
+//TABLA TEMPORAL(Se elimina al cerrar sesiÃ³n)			//TABLA NO TEMPORAL
 select *							select*
 into #empleados							into empleadosnotemp
 from Empleados							from Empleados
@@ -46,4 +46,4 @@ PRACTICA
 [] 3 SELECT CON JOIN Y GROUP BY
 [] 1 SELECT INTO CON DROP TABLE Y REINSERTAR LAS FILAS
 
-			
+Pablo es putillo
